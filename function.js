@@ -3,6 +3,15 @@ const loadCategories = () => {
     .then((res) => res.json())
     .then((json) => displayCategories(json.categories));
 };
+const manageSpinner = (status) => {
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("level-container").classList.add("hidden");
+  } else {
+    document.getElementById("level-container").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
 const removeActive = () => {
   const treesButton = document.querySelectorAll(".trees-btn");
 
@@ -11,6 +20,7 @@ const removeActive = () => {
   });
 };
 const loadPlant = (id) => {
+  manageSpinner(true);
   const url = `https://openapi.programming-hero.com/api/category/${id}`;
   fetch(url)
     .then((res) => res.json())
@@ -74,6 +84,7 @@ const displayLoadPlants = (trees) => {
     `;
     plantCointainer.append(treeDiv);
   }
+  manageSpinner(false);
 };
 
 const loadPlants = () => {
