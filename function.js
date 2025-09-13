@@ -142,16 +142,21 @@ const clickPlants = (plants) => {
   const plantDiv = document.createElement("div");
 
   plantDiv.innerHTML = `
-    <div class="flex bg-[#e2ebe5] p-2 rounded-xl my-3">  
+    <div class="flex bg-[#e2ebe5] p-2 rounded-xl my-3 justify-between">  
   <div class="">
         <h1 class="font-semibold">${plants.name}</h1>
         <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
       </div>
-      <i class="fa-solid fa-xmark cursor-pointer ml-23 mt-5"></i>
+      <i id="clear-btn" class="fa-solid fa-xmark cursor-pointer  mt-5"></i>
 </div>
   `;
 
   levelPlants.append(plantDiv);
+  const clearBtn = document.getElementById("clear-btn");
+  const historyList = document.getElementById("main-container");
+  clearBtn.addEventListener("click", function () {
+    historyList.innerHTML = "";
+  });
 };
 
 loadPlants();
