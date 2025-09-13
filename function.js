@@ -142,9 +142,12 @@ const clickPlants = (plants) => {
   levelPlants.innerHTML = "";
 
   const plantDiv = document.createElement("div");
-  plantDiv.innerHTML = `<div class="h-[64px] w-[218px] bg-[#e2ebe5] rounded-xl pl-4 pt-2">
+  plantDiv.innerHTML = `<div class="h-[64px] w-[218px] bg-[#e2ebe5] rounded-xl pl-4 pt-2 flex  ">
+             <div>
               <h1 class="font-semibold">${plants.name}</h1>
               <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
+              </div>
+              <i class="fa-solid fa-xmark mt-5 ml-18"></i>
             </div>`;
   levelPlants.append(plantDiv);
 };
