@@ -145,7 +145,7 @@ const clickPlants = (plants) => {
     <div class="flex bg-[#e2ebe5] p-2 rounded-xl my-3 justify-between">  
   <div class="">
         <h1 class="font-semibold">${plants.name}</h1>
-        <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
+        <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}   <i class="fa-solid fa-xmark"></i> 1</p>
       </div>
       <i id="clear-btn" class="fa-solid fa-xmark cursor-pointer  mt-5"></i>
 </div>
@@ -153,9 +153,9 @@ const clickPlants = (plants) => {
 
   levelPlants.append(plantDiv);
   const clearBtn = document.getElementById("clear-btn");
-  const historyList = document.getElementById("main-container");
+  const plantCartList = document.getElementById("main-container");
   clearBtn.addEventListener("click", function () {
-    historyList.innerHTML = "";
+    plantCartList.innerHTML = "";
   });
 };
 
