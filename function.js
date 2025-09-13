@@ -138,24 +138,35 @@ const onClick = (id) => {
     .then((json) => clickPlants(json.plants));
 };
 const clickPlants = (plants) => {
+  let count = 0;
+  const plantPrice = plants.price;
+  const totalCount = count + plantPrice;
+  const totalPrice = document.getElementById("total");
+  totalPrice.innerHTML = totalCount;
   const levelPlants = document.getElementById("main-container");
   const plantDiv = document.createElement("div");
 
   plantDiv.innerHTML = `
     <div class="flex bg-[#e2ebe5] p-2 rounded-xl my-3 justify-between">  
   <div class="">
-        <h1 class="font-semibold">${plants.name}</h1>
+        <h1 class="font-bold">${plants.name}</h1>
         <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}   <i class="fa-solid fa-xmark"></i> 1</p>
       </div>
       <i id="clear-btn" class="fa-solid fa-xmark cursor-pointer  mt-5"></i>
 </div>
   `;
 
+  // ------------------------------------------------------------------------------
   levelPlants.append(plantDiv);
   const clearBtn = document.getElementById("clear-btn");
   const plantCartList = document.getElementById("main-container");
   clearBtn.addEventListener("click", function () {
     plantCartList.innerHTML = "";
+  });
+  const clearBtn1 = document.getElementById("clear-btn");
+  const plantCartList1 = document.getElementById("total");
+  clearBtn1.addEventListener("click", function () {
+    plantCartList1.innerHTML = "0";
   });
 };
 
