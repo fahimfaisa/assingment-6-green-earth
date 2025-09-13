@@ -1,3 +1,9 @@
+const productsDiv = document.getElementById("products");
+const cartList = document.getElementById("cart");
+const totalEl = document.getElementById("total");
+
+let cart = [];
+
 const loadCategories = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
@@ -77,7 +83,7 @@ const displayLoadPlants = (trees) => {
                 <i class="fa-solid fa-bangladeshi-taka-sign"></i>${tree.price}
               </p>
             </div>
-            <button onclick="addToCart("${tree.name}","${tree.price}") class="btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
+            <button  class="btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
               Add to Cart
             </button>
           </div>
@@ -92,6 +98,7 @@ const loadPlants = () => {
     .then((res) => res.json())
     .then((json) => displayPlants(json.plants));
 };
+
 const displayPlants = (plants) => {
   const levelPlants = document.getElementById("level-plants");
   levelPlants.innerHTML = "";
@@ -114,14 +121,34 @@ const displayPlants = (plants) => {
                 <i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}
               </p>
             </div>
-            <button class="btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
+            <button onclick="onClick(${plant.id})" class=" btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
               Add to Cart
             </button>
           </div>
     `;
+
     levelPlants.append(plantDiv);
   }
 };
+
+const onClick = (id) => {
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((json) => clickPlants(json.plants));
+};
+const clickPlants = (plants) => {
+  const levelPlants = document.getElementById("main-container");
+  levelPlants.innerHTML = "";
+
+  const plantDiv = document.createElement("div");
+  plantDiv.innerHTML = `<div class="h-[64px] w-[218px] bg-[#e2ebe5] rounded-xl pl-4 pt-2">
+              <h1 class="font-semibold">${plants.name}</h1>
+              <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
+            </div>`;
+  levelPlants.append(plantDiv);
+};
+
 loadPlants();
 const displayCategories = (categories) => {
   const levelContainer = document.getElementById("level-container");
