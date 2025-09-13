@@ -39,9 +39,3 @@ Features:
 i) String Interpolation – Embed variables/expressions with ${}.
 ii) Multi-line Strings – Preserve line breaks without \n.
 iii) Expression Evaluation – Run JS expressions inside strings.
-
-1. Add to Cart
-   Clicking Add to Cart: - Adds the tree to Cart List - Shows tree name
-
-   2. Total Calculation
-      Calculate total price of trees in cart.
