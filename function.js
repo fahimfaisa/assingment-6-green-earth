@@ -139,16 +139,18 @@ const onClick = (id) => {
 };
 const clickPlants = (plants) => {
   const levelPlants = document.getElementById("main-container");
-  levelPlants.innerHTML = "";
-
   const plantDiv = document.createElement("div");
-  plantDiv.innerHTML = `<div class="h-[64px] w-[218px] bg-[#e2ebe5] rounded-xl pl-4 pt-2 flex  ">
-             <div>
-              <h1 class="font-semibold">${plants.name}</h1>
-              <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
-              </div>
-              <i class="fa-solid fa-xmark mt-5 ml-18"></i>
-            </div>`;
+
+  plantDiv.innerHTML = `
+    <div class="flex bg-[#e2ebe5] p-2 rounded-xl my-3">  
+  <div class="">
+        <h1 class="font-semibold">${plants.name}</h1>
+        <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
+      </div>
+      <i class="fa-solid fa-xmark cursor-pointer ml-23 mt-5"></i>
+</div>
+  `;
+
   levelPlants.append(plantDiv);
 };
 
