@@ -137,15 +137,12 @@ const onClick = (id) => {
     .then((res) => res.json())
     .then((json) => clickPlants(json.plants));
 };
+let count = 0;
 const clickPlants = (plants) => {
-  let count = 0;
-  const plantPrice = plants.price;
-  const totalCount = count + plantPrice;
-  const totalPrice = document.getElementById("total");
-  totalPrice.innerHTML = totalCount;
+  count += plants.price;
+  document.getElementById("total").innerHTML = count;
   const levelPlants = document.getElementById("main-container");
   const plantDiv = document.createElement("div");
-
   plantDiv.innerHTML = `
     <div class="flex bg-[#e2ebe5] p-2 rounded-xl my-3 justify-between">  
   <div class="">
@@ -167,6 +164,7 @@ const clickPlants = (plants) => {
   const plantCartList1 = document.getElementById("total");
   clearBtn1.addEventListener("click", function () {
     plantCartList1.innerHTML = "0";
+    count = 0;
   });
 };
 
