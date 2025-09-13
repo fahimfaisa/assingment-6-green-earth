@@ -77,7 +77,7 @@ const displayLoadPlants = (trees) => {
                 <i class="fa-solid fa-bangladeshi-taka-sign"></i>${tree.price}
               </p>
             </div>
-            <button class="btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
+            <button onclick="addToCart("${tree.name}","${tree.price}") class="btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
               Add to Cart
             </button>
           </div>

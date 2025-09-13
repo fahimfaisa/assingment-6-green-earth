@@ -45,12 +45,3 @@ iii) Expression Evaluation – Run JS expressions inside strings.
 
    2. Total Calculation
       Calculate total price of trees in cart.
-
-   3. Remove from Cart
-      Clicking ❌ removes tree and deducts price from total.
-
-   4. Loading Spinner
-      Show spinner while data is loading.
-
-   5. Active Button State
-      Highlight active category button when selected.
