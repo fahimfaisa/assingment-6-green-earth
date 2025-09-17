@@ -69,7 +69,7 @@ const displayLoadPlants = (trees) => {
     treeDiv.innerHTML = `
     <div class="bg-white h-[430px] w-[345px] p-3 rounded-xl">
             <img src="${tree.image}" class="h-[187px] w-full object-cover rounded-xl " alt="" />
-            <h1 class="font-bold mt-2">${tree.name}</h1>
+            <button onclick="loadTreeDetail(${tree.id})" class="font-bold mt-2">${tree.name}</button>
             <p>
               ${tree.description}
             </p>
@@ -83,7 +83,7 @@ const displayLoadPlants = (trees) => {
                 <i class="fa-solid fa-bangladeshi-taka-sign"></i>${tree.price}
               </p>
             </div>
-            <button  class="btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
+            <button onclick="onClick(${tree.id})"  class="btn w-full bg-[#15803D] text-white rounded-3xl mt-3">
               Add to Cart
             </button>
           </div>
