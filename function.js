@@ -139,8 +139,6 @@ const onClick = (id) => {
 };
 let count = 0;
 const clickPlants = (plants) => {
-  count += plants.price;
-  document.getElementById("total").innerHTML = count;
   const levelPlants = document.getElementById("main-container");
   const plantDiv = document.createElement("div");
   plantDiv.innerHTML = `
@@ -149,23 +147,20 @@ const clickPlants = (plants) => {
         <h1 class="font-bold">${plants.name}</h1>
         <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}   <i class="fa-solid fa-xmark"></i> 1</p>
       </div>
-      <i id="clear-btn" class="fa-solid fa-xmark cursor-pointer  mt-5"></i>
+      <i id="clear-btn" class="remove fa-solid fa-xmark cursor-pointer  mt-5"></i>
 </div>
   `;
+  count += plants.price;
+  document.getElementById("total").innerHTML = count;
+  plantDiv.querySelector(".remove").addEventListener("click", () => {
+    plantDiv.remove();
+    count -= plants.price;
+    console.log(count);
+    document.getElementById("total").innerText = count;
+  });
 
   // ------------------------------------------------------------------------------
   levelPlants.append(plantDiv);
-  const clearBtn = document.getElementById("clear-btn");
-  const plantCartList = document.getElementById("main-container");
-  clearBtn.addEventListener("click", function () {
-    plantCartList.innerHTML = "";
-  });
-  const clearBtn1 = document.getElementById("clear-btn");
-  const plantCartList1 = document.getElementById("total");
-  clearBtn1.addEventListener("click", function () {
-    plantCartList1.innerHTML = "0";
-    count = 0;
-  });
 };
 
 loadPlants();
